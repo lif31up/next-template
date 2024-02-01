@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+
+@import "@/styles/Common.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,13 +21,10 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-size: 18px;
+  color: black;
+  background: white;
+  font-family: "Lalezar", sans-serif;
 }
 
 @layer utilities {

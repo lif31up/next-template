@@ -1,7 +1,9 @@
+import FirstBlock from "@/components/feature/FirstBlock";
+
 export default function Home() {
   return (
-    <main>
-      <h1>나와 내 컴퓨터</h1>
+    <main className="w-full h-screen grid justify-items-center items-center">
+      <FirstBlock/>
     </main>
   );
 }
