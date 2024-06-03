@@ -3,7 +3,7 @@ import DefaultProps from "@/utils/DefaultProps";
 
 export function CommonComp({ className }: DefaultProps<never>) {
   const tailName: TailProperties = {
-    box: "w-24 h-24",
+    box: "w-24 h-24  md:w-16 md:h-16",
     layout: "flex",
   };
   return <div className={`${TailClassName(tailName)} ${className}`}></div>;
