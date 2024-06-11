@@ -10,6 +10,7 @@ export default function TopBar({
   className,
 }: DefaultProps<typeof TopBarData>) {
   const { title, desc }: typeof TopBarData = data;
+
   const tailname: TailProperties = {
     box: "w-full h-16",
     bg_border: "bg-blue text-white",
