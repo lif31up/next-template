@@ -25,6 +25,7 @@ export function EffectComp({
   // pre-rendering area
   const index: string = prop0.toString();
 
+  if (!data) return <></>;
   const tailname: TailProperties = {
     box: "w-16 h-16",
     bg_border: "bg-white",

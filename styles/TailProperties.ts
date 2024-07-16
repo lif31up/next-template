@@ -10,6 +10,14 @@ export default interface TailProperties {
   etc?: string;
 }
 
-export function TailClassName(tailwindProperties: TailProperties) {
-  return `${tailwindProperties.position} ${tailwindProperties.bg_border} ${tailwindProperties.box} ${tailwindProperties.layout} ${tailwindProperties.typo} ${tailwindProperties.anime_transit} ${tailwindProperties.transform} ${tailwindProperties.interact}`;
+export function TailClassName(properties: TailProperties): string {
+  return `${properties.position ?? properties.position} ${
+    properties.bg_border ?? properties.bg_border
+  } ${properties.box ?? properties.box} ${
+    properties.layout ?? properties.layout
+  } ${properties.typo ?? properties.typo} ${
+    properties.anime_transit ?? properties.anime_transit
+  } ${properties.transform ?? properties.transform} ${
+    properties.interact ?? properties.interact
+  } ${properties.etc ?? properties.etc}`;
 }

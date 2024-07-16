@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <TopBar data={{ title: "some title", desc: "some desc" }} />
+        <TopBar height={138} constraint={8} />
         <>{children}</>
       </body>
     </html>

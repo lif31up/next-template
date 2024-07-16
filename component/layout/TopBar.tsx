@@ -1,23 +1,50 @@
+"use client";
+
 import DefaultProps from "@/utils/DefaultProps";
 import TailProperties, { TailClassName } from "@/styles/TailProperties";
+import { CSSProperties, useEffect } from "react";
 
-const TopBarData = {
-  title: "next template",
-  desc: "desc of layout",
-};
-export default function TopBar({
-  data,
-  className,
-}: DefaultProps<typeof TopBarData>) {
-  const { title, desc }: typeof TopBarData = data;
+interface TopBarProps extends DefaultProps<never> {
+  height: number;
+  constraint: number;
+} // TopBarProps
+export default function TopBar({ height, constraint, className }: TopBarProps) {
+  useEffect((): void => {
+    const topbar: HTMLElement | null = document.getElementById(topbarId);
+    if (topbar) {
+      topbar.style.height = `${height}px`;
+      topbar.style.transition = "height 0.75s ease-in-out";
+      window.addEventListener("scroll", (): void => {
+        if (window.scrollY > 0)
+          topbar.style.height = `${height - constraint}px`;
+        else topbar.style.height = `${height}px`;
+      }); // window
+    } // if
+  }, []);
 
+  const topbarId: string = "top-bar";
   const tailname: TailProperties = {
-    box: "w-full h-16",
-    bg_border: "bg-blue text-white",
+    box: "w-full  px-4",
+    bg_border: "bg-black text-slate-500",
+    layout: "grid",
+    etc: "fixed top-0 left-0",
+    anime_transit: "transition-height",
+  };
+  const layer: CSSProperties = {
+    width: "100%",
+    height: `${height}px`,
   };
   return (
-    <section className={`${TailClassName(tailname)} ${className}`}>
-      {title + " - " + desc}
+    <section
+      className={`${TailClassName(tailname)} ${className}`}
+      title="top-bar"
+      id={topbarId}
+    >
+      <div style={layer}>
+        <div></div>
+      </div>
+      <div style={layer}></div>
+      <div style={layer}></div>
     </section>
   );
 }
