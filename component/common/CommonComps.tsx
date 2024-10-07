@@ -11,16 +11,20 @@ export function CommonComp({ className }: DefaultProps<never>) {
   return <div className={`${TailClassName(tailName)} ${className}`}></div>;
 } // CommonComp(): this is paradigm to define a JSX element.
 
-type DataCompData = { number: number };
+type DataCompData = { age: number; name: string };
 export function DataComp({ data, className }: DefaultProps<DataCompData>) {
   // data area
-  const { number }: DataCompData = data;
+  if (!data) return <></>;
+  const { age, name }: DataCompData = data;
   const tailName: TailProperties = {
     box: "w-fit h-fit",
     typo: "font-bold text-xs",
   };
+
   return (
-    <h1 className={`${TailClassName(tailName)} ${className}`}>{number}</h1>
+    <h1
+      className={`${TailClassName(tailName)} ${className}`}
+    >{`age: ${age}\nname: ${name}`}</h1>
   );
 } // DataComp(): they are to be passed the data from parent
 
@@ -36,6 +40,7 @@ export function ClickComp({ id, onClick, className }: DefaultProps<never>) {
     box: "w-fit h-fit",
     typo: "font-bold text-xs",
   };
+
   return (
     <button
       className={`${TailClassName(tailName)} ${className}`}
