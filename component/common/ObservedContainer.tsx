@@ -5,13 +5,15 @@ import DefaultProps from "@/utils/DefaultProps";
 
 interface ObservedComponentProps extends DefaultProps<never> {
   children: React.ReactNode;
-  threshold?: number;
+  animation: string;
   id: string;
-  delay?: number;
+  threshold?: number | undefined;
+  delay?: number | undefined;
 }
 export default ObservedContainer;
 function ObservedContainer({
   id,
+  animation,
   threshold,
   children,
   delay,
@@ -20,10 +22,10 @@ function ObservedContainer({
   let options: object = {
     root: null,
     rootMargin: "0px",
-    threshold: threshold !== null ? threshold : 0.5,
+    threshold: threshold ? threshold : 0.5,
   }; // options
   useEffect(() => {
-    let element: HTMLElement | null = document.getElementById(id);
+    const element: HTMLElement | null = document.getElementById(id);
     if (!element) return;
 
     const intersectHandler = (entries: Array<any>): void => {
@@ -44,5 +46,40 @@ function ObservedContainer({
     observerRef.current = new IntersectionObserver(intersectHandler, options);
     observerRef.current.observe(element);
   }, []);
-  return <div id={id}>{children}</div>;
+  return (
+    <div id={id} className={animation}>
+      {children}
+    </div>
+  );
+}
+
+interface ObservedDistributorProps extends DefaultProps<never> {
+  animation: string;
+  id: string;
+  threshold?: number | undefined;
+  delay?: number | undefined;
+}
+export function ObservedDistributor({
+  children,
+  animation,
+  id,
+  threshold,
+  delay,
+}: ObservedDistributorProps) {
+  const listOfNode: React.ReactNode[] = [];
+  children.forEach((node: any, index: number) => {
+    if (React.isValidElement(node))
+      listOfNode.push(
+        <ObservedContainer
+          animation={animation}
+          id={`${id}-children--${index}`}
+          key={index}
+          threshold={threshold}
+          delay={delay}
+        >
+          {node}
+        </ObservedContainer>
+      ); // push
+  }); // forEach
+  return <section id={id}>{listOfNode}</section>;
 }
