@@ -39,12 +39,6 @@ export default function TopBar({ height, constraint, className }: TopBarProps) {
       className={`${TailClassName(tailname)} ${className}`}
       title="top-bar"
       id={topbarId}
-    >
-      <div style={layer}>
-        <div></div>
-      </div>
-      <div style={layer}></div>
-      <div style={layer}></div>
-    </section>
+    ></section>
   );
 }

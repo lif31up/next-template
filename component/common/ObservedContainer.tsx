@@ -9,7 +9,7 @@ interface ObservedComponentProps extends DefaultProps<never> {
   id: string;
   threshold?: number | undefined;
   delay?: number | undefined;
-}
+} // ObservedComponentProps
 export default ObservedContainer;
 function ObservedContainer({
   id,
@@ -51,14 +51,14 @@ function ObservedContainer({
       {children}
     </div>
   );
-}
+} // ObservedContainer
 
 interface ObservedDistributorProps extends DefaultProps<never> {
   animation: string;
   id: string;
   threshold?: number | undefined;
   delay?: number | undefined;
-}
+} // ObservedDistributorProps
 export function ObservedDistributor({
   children,
   animation,

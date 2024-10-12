@@ -34,7 +34,7 @@
 }
 
 ._anime-slp-vanish-in {
-  animation: vanishIn linear 0.75s paused;
+  animation: vanishIn linear 2s paused;
 }
 
 ._anime-space-zoom {

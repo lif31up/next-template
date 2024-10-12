@@ -19,7 +19,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <TopBar height={138} constraint={8} />
         <>{children}</>
       </body>
     </html>
