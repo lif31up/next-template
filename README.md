@@ -1,5 +1,7 @@
 This repository is intended to study design patterns and implementation methods for React elements, tools, hooks, states, and more.
 
-### Deps
+### You will see:
 * tailwind CSS
 * Next.js
+* TypeScript
+* DOM control
