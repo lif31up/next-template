@@ -5,3 +5,4 @@ This repository is intended to study design patterns and implementation methods 
 * Next.js
 * TypeScript
 * DOM control
+* Recoil
