@@ -1,6 +1,6 @@
 import DefaultProps from "@/utils/DefaultProps";
 import { useEffect } from "react";
-import TailProperties, { TailClassName } from "@/styles/TailProperties";
+import TailProperties, { cn } from "@/styles/TailProperties";
 import ReusableHook from "@/utils/hook/ReusableHook";
 
 type EffectCompData = {
@@ -31,7 +31,7 @@ export function EffectComp({
     bg_border: "bg-white",
   };
   return (
-    <div className={`${TailClassName(tailname)} ${className}`}>
+    <div className={`${cn(tailname)} ${className}`}>
       {data.name + " " + index}
     </div>
   );

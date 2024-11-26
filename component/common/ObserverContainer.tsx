@@ -7,11 +7,11 @@ interface ObservedComponentProps extends DefaultProps<never> {
   children: React.ReactNode;
   animation: string;
   id: string;
-  threshold?: number | undefined;
-  delay?: number | undefined;
+  threshold?: number;
+  delay?: number;
 } // ObservedComponentProps
-export default ObservedContainer;
-function ObservedContainer({
+export default ObserverContainer;
+function ObserverContainer({
   id,
   animation,
   threshold,
@@ -22,7 +22,7 @@ function ObservedContainer({
   let options: object = {
     root: null,
     rootMargin: "0px",
-    threshold: threshold ? threshold : 0.5,
+    threshold: threshold !== undefined ? threshold : 0.5,
   }; // options
   useEffect(() => {
     const element: HTMLElement | null = document.getElementById(id);
@@ -37,7 +37,7 @@ function ObservedContainer({
 
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          if (!delay) effectHandler();
+          if (delay === undefined) effectHandler();
           else setTimeout(effectHandler, delay);
         } // if
       }); // forEach
@@ -50,36 +50,5 @@ function ObservedContainer({
     <div id={id} className={animation}>
       {children}
     </div>
-  );
+  ); // return
 } // ObservedContainer
-
-interface ObservedDistributorProps extends DefaultProps<never> {
-  animation: string;
-  id: string;
-  threshold?: number | undefined;
-  delay?: number | undefined;
-} // ObservedDistributorProps
-export function ObservedDistributor({
-  children,
-  animation,
-  id,
-  threshold,
-  delay,
-}: ObservedDistributorProps) {
-  const listOfNode: React.ReactNode[] = [];
-  children.forEach((node: any, index: number) => {
-    if (React.isValidElement(node))
-      listOfNode.push(
-        <ObservedContainer
-          animation={animation}
-          id={`${id}-children--${index}`}
-          key={index}
-          threshold={threshold}
-          delay={delay}
-        >
-          {node}
-        </ObservedContainer>
-      ); // push
-  }); // forEach
-  return <section id={id}>{listOfNode}</section>;
-}

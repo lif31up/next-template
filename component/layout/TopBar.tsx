@@ -1,7 +1,7 @@
 "use client";
 
 import DefaultProps from "@/utils/DefaultProps";
-import TailProperties, { TailClassName } from "@/styles/TailProperties";
+import TailProperties, { cn } from "@/styles/TailProperties";
 import { CSSProperties, useEffect } from "react";
 
 interface TopBarProps extends DefaultProps<never> {
@@ -36,9 +36,9 @@ export default function TopBar({ height, constraint, className }: TopBarProps) {
   };
   return (
     <section
-      className={`${TailClassName(tailname)} ${className}`}
+      className={`${cn(tailname)} ${className}`}
       title="top-bar"
       id={topbarId}
     ></section>
   );
-}
+} // TopBar

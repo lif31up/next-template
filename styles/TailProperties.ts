@@ -10,7 +10,7 @@ export default interface TailProperties {
   etc?: string;
 }
 
-export function TailClassName(properties: TailProperties): string {
+export function cn(properties: TailProperties): string {
   return `${properties.position ?? properties.position} ${
     properties.bg_border ?? properties.bg_border
   } ${properties.box ?? properties.box} ${

@@ -1,5 +1,6 @@
-import TailProperties, { TailClassName } from "@/styles/TailProperties";
+import TailProperties, { cn } from "@/styles/TailProperties";
 import DefaultProps from "@/utils/DefaultProps";
+import React, { useEffect, useState } from "react";
 
 export function CommonComp({ className }: DefaultProps<never>) {
   // tailname area
@@ -8,14 +9,14 @@ export function CommonComp({ className }: DefaultProps<never>) {
     layout: "flex",
   };
   // html area
-  return <div className={`${TailClassName(tailName)} ${className}`}></div>;
-} // CommonComp(): this is paradigm to define a JSX element.
+  return <div className={`${cn(tailName)} ${className}`}></div>;
+} // CommonComp
 
-type DataCompData = { age: number; name: string };
-export function DataComp({ data, className }: DefaultProps<DataCompData>) {
+type DataCompDataType = { age: number; name: string };
+export function DataComp({ data, className }: DefaultProps<DataCompDataType>) {
   // data area
   if (!data) return <></>;
-  const { age, name }: DataCompData = data;
+  const { age, name }: DataCompDataType = data;
   const tailName: TailProperties = {
     box: "w-fit h-fit",
     typo: "font-bold text-xs",
@@ -23,10 +24,10 @@ export function DataComp({ data, className }: DefaultProps<DataCompData>) {
 
   return (
     <h1
-      className={`${TailClassName(tailName)} ${className}`}
+      className={`${cn(tailName)} ${className}`}
     >{`age: ${age}\nname: ${name}`}</h1>
   );
-} // DataComp(): they are to be passed the data from parent
+} // DataComp
 
 export function ClickComp({ id, onClick, className }: DefaultProps<never>) {
   // prop area
@@ -42,11 +43,50 @@ export function ClickComp({ id, onClick, className }: DefaultProps<never>) {
   };
 
   return (
-    <button
-      className={`${TailClassName(tailName)} ${className}`}
-      onClick={clickHandler}
-    >
+    <button className={`${cn(tailName)} ${className}`} onClick={clickHandler}>
       button
     </button>
   );
-} // ClickComp(): they are to be passed the onClick() function from parent
+} // ClickComp
+
+export function FetchingComp(): React.ReactNode {
+  const [data, setData] = useState<any>([]);
+  const [load, setLoad] = useState<boolean>(true);
+
+  useEffect(() => {
+    fetch("/api/data")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        setLoad(false);
+      });
+  }, []);
+
+  if (load) return <></>;
+  return <DataComp data={data} />;
+} // FetchingComp
+
+type DataProviderRenderType = {
+  render: (data: DataCompDataType) => {};
+}; // DataProviderRenderType
+
+const DataProvider = ({ render }: DataProviderRenderType) => {
+  const [data, setData] = useState<DataCompDataType | null>(null);
+  const [load, setLoad] = useState<boolean>(true);
+
+  useEffect(() => {
+    fetch("/api/data")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        setLoad(false);
+      });
+  }, []);
+
+  if (load || data === null) return <></>;
+  return render(data);
+}; // DataProvider
+export const DataContainer = () => {
+  const renderer = (data: DataCompDataType) => <DataComp data={data} />;
+  return DataProvider({ render: renderer });
+}; // DataContainer
