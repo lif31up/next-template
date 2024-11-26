@@ -26,6 +26,6 @@ Using custom hooks (useFetch, useUsers) to encapsulate state and logic, while ke
 * `component/common/FeatureComps.tsx/EffectComp`
 * `utils/hook/ReusableHook.ts`
 #### ObserverAPI Container to Trigger Animation
-Render props design apptern applied to bserverAPI to trigger animation, intergrating with Tailwind CSS
+Render props design apptern applied to bserverAPI to trigger animation, intergrating with Tailwind CSS/SCSS
 * `component/common/ObserverContainer.tsx/ObserverContainer`
 * `/styles/_animation.scss`
