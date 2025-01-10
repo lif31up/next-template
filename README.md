@@ -1,3 +1,4 @@
+<a href="https://lif31up-blog.notion.site/React-11d16899260a81f497a5ea80299b2926">한글 문서</a>
 ## React Design Patterns & Implementation Methods
 This repository serves as a study guide for design patterns and implementation techniques in React. It focuses on various aspects such as React components, hooks, states, tools, and best practices in modern front-end development. You'll explore how to create efficient, scalable, and maintainable React applications using various tools and libraries.
 
