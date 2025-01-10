@@ -10,6 +10,7 @@ This repository covers the following key technologies and patterns commonly used
 * `TypeScript`: A statically typed superset of JavaScript that enhances development by adding type checking, improving refactoring, and reducing bugs.
 * `DOM Control`: Understanding and manipulating the DOM in a React environment, handling updates efficiently, and optimizing performance.
 * `Recoil`: A state management library for React that provides a simple and flexible way to manage global state using atoms and selectors.
+* `React-Query`: Integrating between Next.js and React-Query.
 
 ## Applied Design Patterns
 #### Container/HOC Component
