@@ -1,12 +1,47 @@
-/*external sources*/
+/* this file is integrated with Tailwind CSS */
+/*Import font from external source*/
 @import url("https://fonts.googleapis.com/css2?family=Lalezar&display=swap");
+/*Class for text hierarchy*/
 @import "magic.css/dist/magic.css";
-._wh-screen {
-  width: 100vw;
-  height: 100vh;
+._font-lalezar-sm {
+  font-family: "Lalezar", sans-serif;
+  text-space: 1px;
+  font-size: 12px;
 }
 
-/*infinite*/
+._font-lalezar-xs {
+  font-family: "Lalezar", sans-serif;
+  text-space: 0.75px;
+  font-size: 10px;
+}
+
+._bg-primary-100 {
+  background: slategray;
+}
+
+._bg-secondary-100 {
+  background: slateblue;
+}
+
+/* paused:
+ * they served as animation preset for ObserverAPI.*/
+._paused-space-in-up {
+  animation: spaceInUp ease-in-out 2s paused;
+}
+
+._paused-ltr-slide {
+  animation: slideRightReturn ease-in-out 1s paused;
+}
+
+._paused-rtl-slide {
+  animation: slideLeftReturn ease-in-out 1s paused;
+}
+
+._paused-vanish-in {
+  animation: vanishIn linear 2s paused;
+}
+
+/*custom animation*/
 ._anime-dynamic-rainbow {
   position: relative;
   width: 100%;
@@ -18,23 +53,6 @@
 ._anime-vibration {
   outline: solid black 3px;
   animation: vibration linear 1s infinite;
-}
-
-/*sleep*/
-._anime-slp-space-in-up {
-  animation: spaceInUp ease-in-out 2s paused;
-}
-
-._anime-slp-ltr-slide {
-  animation: slideRightReturn ease-in-out 1s paused;
-}
-
-._anime-slp-rtl-slide {
-  animation: slideLeftReturn ease-in-out 1s paused;
-}
-
-._anime-slp-vanish-in {
-  animation: vanishIn linear 2s paused;
 }
 
 ._anime-space-zoom {
@@ -49,37 +67,6 @@
   animation: zoom 20s alternate infinite;
 }
 
-/*keyframes*/
-@keyframes zoom {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.5);
-  }
-}
-@keyframes vibration {
-  0% {
-    outline-color: rgba(0, 250, 0, 0.3);
-    outline-offset: 3px;
-  }
-  50% {
-    outline-color: rgba(0, 250, 0, 0);
-    outline-offset: 6px;
-  }
-  100% {
-    outline-color: rgba(0, 250, 0, 0.3);
-    outline-offset: 3px;
-  }
-}
-@keyframes loading {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 500% 0;
-  }
-}
 html {
   font-size: 16px;
   color: black;
