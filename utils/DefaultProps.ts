@@ -4,5 +4,6 @@ export default interface DefaultProps<T> {
   title?: string;
   children?: any;
   data?: T;
-  onClick?: (parm: any) => any;
+  onClick?: (...args: any[]) => any;
+  render?: (...args: any[]) => any;
 }
