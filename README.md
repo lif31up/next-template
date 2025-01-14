@@ -20,7 +20,7 @@
 렌더링과 UI에만 집중하는 컴포넌트. 보통 상태가 없으며, 컨테이너로부터 전달된 props를 기반으로 동작합니다.
 * `component/common/CommonComps.tsx/Presenter`
 #### 프롭스를 통한 렌더링
-로직을 컴포넌트 간에 공유하기 위해 함수를 props로 전달하는 패턴.
+로직을 컴포넌트 간에 공유하기 위해 렌더링 함수를 props로 전달하는 패턴.
 * `component/common/CommonComps.tsx/ListRenderer`
 * `component/common/CommonComps.tsx/PresenterList`
 #### 로직 분리를 위한 후크
