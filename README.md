@@ -27,6 +27,13 @@
 커스텀 훅(useFetch, useUsers)을 사용하여 상태와 로직을 캡슐화하고 컴포넌트를 간결하게 유지합니다.
 * `component/common/FeatureComps.tsx/EffectComp`
 * `utils/hook/ReusableHook.ts`
+#### 모듈러 Tailwind CSS
+Tailwind CSS의 적용하기 위한 코드를 용도에 따라 모듈화 하여 더 나은 유지보수, 작성을 가능하게 하는 패턴.
+* `component/common/ObserverContainer.tsx/CommonComponent`
+* `component/styles/TailProperties.ts`
+#### 사용자 정의 SCSS 라이브러리와 Tailwind CSS 간의 통합
+Tailwind CSS와 사용자 정의 SCSS 라이브러리를 구조적으로 통합.
+* `styles/index.scss`
 #### 애니메이션 트리거를 위한 ObserverAPI 컨테이너
 ObserverAPI를 활용하여 애니메이션을 트리거하는 Render Props 디자인 패턴. Tailwind CSS/SCSS와 통합.
 * `component/common/ObserverContainer.tsx/ObserverContainer`
@@ -63,6 +70,13 @@ A pattern where a function is passed as a prop to share logic between components
 Using custom hooks (useFetch, useUsers) to encapsulate state and logic, while keeping components clean.
 * `component/common/FeatureComps.tsx/EffectComp`
 * `utils/hook/ReusableHook.ts`
+#### Modular Tailwind CSS
+A pattern for modularizing Tailwind CSS code based on usage, enabling better maintainability and development efficiency.
+* `component/common/ObserverContainer.tsx/CommonComponent`
+* `component/styles/TailProperties.ts`
+#### Integration with Custom SCSS Library and Tailwind CSS
+Structurally integrates Tailwind CSS with a custom SCSS library.
+* `styles/index.scss`
 #### ObserverAPI Container to Trigger Animation
 Render props design pattern applied to observerAPI to trigger animation, intergrating with Tailwind CSS/SCSS
 * `component/common/ObserverContainer.tsx/ObserverContainer`
